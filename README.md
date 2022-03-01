@@ -22,7 +22,7 @@ $ python compiler.py <fileName>
 ```
 Plasma Compiler will compile the file, run it, and display the result of the program to the console window.
 
-## Features
+# Features
 - Single line comments
 - Function declaration
 - Variables and Scoping

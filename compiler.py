@@ -76,7 +76,7 @@ def Run(fileName, DEBUG, TEST, platform):
     return return_val
 
 
-
+# usage: python compiler.py <inFile> ?<platform> ?<debug>
 if __name__ == "__main__":
     if len(sys.argv) > 1:
 
@@ -101,6 +101,6 @@ if __name__ == "__main__":
             elif user_debug == "DEBUG=false":
                 DEBUG = False
 
-        Run(sys, DEBUG, True, platform)
+        Run(sys.argv[1], DEBUG, True, platform)
     else:
         logger.Error("No source file.")

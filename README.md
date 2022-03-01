@@ -18,7 +18,7 @@ $ python test.py
 
 To further use the compiler for compilation of any novel programs, run the following
 ```
-$ python compile.py <fileName>
+$ python compiler.py <fileName>
 ```
 Plasma Compiler will compile the file, run it, and display the result of the program to the console window.
 

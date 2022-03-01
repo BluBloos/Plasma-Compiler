@@ -17,11 +17,8 @@ PLATFORM = "WINDOWS"
 
 def SingleTest(fileName, desired_result):
     debug = False
-
     test = True
-
     result = compiler.Run(fileName, debug, test, PLATFORM)
-
     if desired_result == result:
         print(colored("{} works.".format(fileName), "green"))
         print(Style.RESET_ALL)

@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://i.gyazo.com/66cada5c7538e5597443c1e467c862aa.gif" height="500px" />
+<img src="https://i.gyazo.com/66cada5c7538e5597443c1e467c862aa.gif" />
 </p>
   
 # Plasma-Compiler ⚡

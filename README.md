@@ -1,5 +1,7 @@
-<img src="https://i.gyazo.com/66cada5c7538e5597443c1e467c862aa.gif" />
-
+<p align="center">
+<img src="https://i.gyazo.com/66cada5c7538e5597443c1e467c862aa.gif" height="500px" />
+</p>
+  
 # Plasma-Compiler ⚡
 C compiler written in Python. It does not comply with any standards for the C language. Likely Turing complete. It works by transpiling C source to x86 assembly, then leveraging third party tools to assemble and link the program. The code is fully custom, everything from the lexer to the code generation (no libraries used). 
 

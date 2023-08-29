@@ -18,6 +18,8 @@ https://github.com/BluBloos/Portable-Programming-Language
 NOTE: The compiler only runs on Windows host machines, and it will only compile
 win32 binaries.
 
+## Dependencies
+
 This project uses the MSVC linker, so you will need to install <a
 href="https://visualstudio.microsoft.com/vs/">Visual Studio</a> if you haven't
 already. At the time of writing, the latest version is 2019, so I cannot
@@ -35,6 +37,8 @@ Finally, some Python dependencies must be installed,
 pip install -r requirements.txt
 ```
 
+## Setup
+
 To use the compiler, open a new command prompt and run,
 
 ```
@@ -42,6 +46,8 @@ shell.bat
 ```
 
 This will setup the MSVC environment, so that link.exe is accessible.
+
+## Normal Usage
 
 To run the compiler for a novel program, run the following,
 
@@ -51,6 +57,8 @@ python compiler.py <fileName>
 
 Plasma Compiler will compile the file, run it, and display the result of the
 program to the console window.
+
+## Running Tests
 
 To run the pre-made tests:
 

@@ -1,7 +1,3 @@
-<p align="center">
-<img src="https://i.gyazo.com/66cada5c7538e5597443c1e467c862aa.gif" />
-</p>
-  
 # Plasma-Compiler ⚡
 
 C compiler written in Python. It does not comply with any standards for the C
@@ -10,8 +6,28 @@ assembly, then leveraging third party tools to assemble and link the program.
 The code is fully custom, everything from the lexer to the code generation (no
 libraries used).
 
-NOTE: This project is complete and further development has been moved to
-https://github.com/BluBloos/Portable-Programming-Language
+> NOTE: This project was developed when I was in high school and therefore does not reflect my current expertise. I have made minor updates to the project since then, but the majority of the codebase remains unchanged from the original version.
+
+<p align="center">
+<img src="https://i.gyazo.com/66cada5c7538e5597443c1e467c862aa.gif" />
+</p>
+
+# Features
+
+- Single line comments
+- Function declaration
+- Variable declaration and assignment
+- Variable Scoping
+- If, else if, and else
+- For loops
+- While loops
+- Break / Continue
+- Recursion
+- Precedence in expressions
+- Ternary operator
+- Supported binary operations: +   -    *    /    ==    !=    >    <    >=    <=    ||    &&
+- Supported unary operations: - !
+
 
 # Steps for Using
 
@@ -47,37 +63,17 @@ shell.bat
 
 This will setup the MSVC environment, so that link.exe is accessible.
 
+**The compiler will not log an error if link.exe is unavailable.**
+
 ## Normal Usage
 
-To run the compiler for a novel program, run the following,
+usage: Plasma Compiler [-h] [-d] [-r] [filename]
 
-```
-python compiler.py <fileName>
-```
+positional arguments:
+  filename     The file to process.
 
-Plasma Compiler will compile the file, run it, and display the result of the
-program to the console window.
+options:
+  -h, --help   show this help message and exit
+  -d, --debug  Enable debug mode.
+  -r, --run    Run code after compile.
 
-## Running Tests
-
-To run the pre-made tests:
-
-```
-python test.py
-```
-
-# Features
-
-- Single line comments
-- Function declaration
-- Variable declaration and assignment
-- Variable Scoping
-- If, else if, and else
-- For loops
-- While loops
-- Break / Continue
-- Recursion
-- Precedence in expressions
-- Ternary operator
-- Supported binary operations: +   -    *    /    ==    !=    >    <    >=    <=    ||    &&
-- Supported unary operations: - !

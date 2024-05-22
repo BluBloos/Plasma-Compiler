@@ -7,6 +7,9 @@ import syntax
 import semantics
 import codegen
 import optimization
+import argparse
+from colorama import init
+from colorama import Fore, Back, Style
 
 import sys
 import os
@@ -75,32 +78,62 @@ def Run(fileName, DEBUG, TEST, platform):
 
     return return_val
 
+def colored(string, color):
+    if color == "green":
+        return Fore.GREEN + string
+    elif color == "red":
+        return Fore.RED + string
 
-# usage: python compiler.py <inFile> ?<platform> ?<debug>
-if __name__ == "__main__":
-    if len(sys.argv) > 1:
-
-        platform = "WINDOWS"
-        DEBUG = True
-
-        # Determine if they specified a specific platform
-        if len(sys.argv) > 2:
-            user_pla = sys.argv[2]
-            if user_pla == "LINUX" or user_pla == "WINDOWS":
-                platform = user_pla
-            else:
-                print("Platform not recognized, defaulting to Windows.")
-        else:
-            print("No platform specified, defaulting to Windows.")
-
-        # did they specify debug?
-        if len(sys.argv) > 3:
-            user_debug = sys.argv[3]
-            if user_debug == "DEBUG=true":
-                DEBUG = True
-            elif user_debug == "DEBUG=false":
-                DEBUG = False
-
-        Run(sys.argv[1], DEBUG, True, platform)
+def SingleTest(fileName, desired_result):
+    global PLATFORM
+    debug = False
+    test = True
+    result = Run(fileName, debug, test, PLATFORM)
+    if desired_result == result:
+        print(colored("{} works.".format(fileName), "green"))
+        print(Style.RESET_ALL)
     else:
-        logger.Error("No source file.")
+        print(colored("Error: {} does not work.".format(fileName), "red"))
+        print(Style.RESET_ALL)
+
+def RunAllTests():
+
+    global PLATFORM
+    init()
+    PLATFORM = "WINDOWS"
+
+    SingleTest("tests/variable_scoping.c", 3)
+    SingleTest("tests/variables.c", 5)
+    SingleTest("tests/expression.c", 1)
+    SingleTest("tests/comments.c", 0)
+    SingleTest("tests/function.c", 65)
+    SingleTest("tests/function2.c", 128)
+    SingleTest("tests/factorial.c", 6)
+    SingleTest("tests/if.c", 100)
+    SingleTest("tests/if2.c", 80)
+    SingleTest("tests/if3.c", 40)
+    SingleTest("tests/conditional.c", 12)
+    SingleTest("tests/fib.c", 13)
+    SingleTest("tests/for.c", 5)
+    SingleTest("tests/while.c", 10)
+
+ 
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(prog='Plasma Compiler',
+        description='Compile C programs.')
+    parser.add_argument('filename', nargs='?', help="The file to process.", default=None)
+    parser.add_argument('-d', '--debug', action='store_true', help="Enable debug mode.")
+    parser.add_argument('-r', '--run', action='store_true', help="Run code after compile.")
+    parser.add_argument('-t', '--test', action='store_true', help="Run all tests (ignores positional argument).")
+    args = parser.parse_args()
+
+    if args.test:
+        RunAllTests()
+    else:
+        if args.filename is not None:
+            platform = "WINDOWS"
+            DEBUG = args.debug
+            Run(args.filename, DEBUG, args.run, platform)
+        else:
+            logger.Error("No source file.")

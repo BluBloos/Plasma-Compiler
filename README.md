@@ -17,19 +17,23 @@ libraries used).
 
 # Features
 
-- Single line comments
-- Function declaration
-- Variable declaration and assignment
-- Variable Scoping
-- If, else if, and else
-- For loops
-- While loops
-- Break / Continue
-- Recursion
-- Precedence in expressions
-- Ternary operator
-- Supported binary operations: +   -    *    /    ==    !=    >    <    >=    <=    ||    &&
-- Supported unary operations: - !
+- Custom lexer
+- Custom AST representation
+- Machine code generation, represented by assembly language
+- Supported C Language Features:
+    - Single line comments
+    - Function declaration
+    - Variable declaration and assignment
+    - Variable Scoping
+    - If, else if, and else
+    - For loops
+    - While loops
+    - Break / Continue
+    - Recursion
+    - Precedence in expressions
+    - Ternary operator
+    - binary operations: +   -    *    /    ==    !=    >    <    >=    <=    ||    &&
+    - unary operations: - !
 
 
 # Steps for Using
@@ -44,9 +48,9 @@ href="https://visualstudio.microsoft.com/vs/">Visual Studio</a> if you haven't
 already. 
 > At the time of writing, the latest version is 2019, so I cannot
 guarantee proper linking for any subsequent versions. 
-Also note that if your
-Visual Studio version is different than 2019, you will need to change
-*shell.bat* accordingly.
+
+Also note that if your Visual Studio version is different than 2019, you will
+need to change *shell.bat* accordingly.
 
 ### Development Dependencies
 
